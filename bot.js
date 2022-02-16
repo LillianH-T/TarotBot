@@ -129,21 +129,19 @@ if (message.substring(0, 1) == '!') {
 
         break;
 
-        //**case 'define':
+        case 'define':
 
-        //var card = '';
+        var card = '';
 
-        //for(let i = 0; i < args.length; i++){
+        for(let i = 1; i < args.length; i++){
+          card = card.concat(args[i]);
+        }
 
-
-
-
-
-        //}
+        send(checkCard(card), channelID);
 
 
 
-        //break;
+        break;
 
         // Just add any case commands if you want to..
 
@@ -180,26 +178,19 @@ function checkCard(card){
 
 //First, clean up the input and check if the card is inverted
 var inverted = false;
-
-if(card.includes('Inverted ')){
-  inverted = true;
-  card.replace('Inverted ','');
-}
-
 card.replace('\n', '');
 
-//Then return the corresponding definition from the dictionary
-if(!inverted){
-
-  return definitions[card][0];
-
+if(card.includes('Inverted ')){
+  card.replace('Inverted ','');
+  return definitions[card][1];
 }else{
 
-  return definitions[card][1];
-
+  return definitions[card][0];
 }
 
 
+
+//Then return the corresponding definition from the dictionary
 
 
 

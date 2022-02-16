@@ -15,11 +15,7 @@ var cards = Array('The Fool','The Magician','The High Priestess','The Empress','
 let definitions = {
 
   'The Fool' : ['Potential, New Begginings, Opportunity, Adventure', 'Carelessness, Negligence, Uncertainity, Apathy'],
-  'The Magician' : []
-  
-
-
-
+  'The Magician' : ['Skill, Confidence, Action, Concentration, Accomplishment', 'Unease, Lack of Planning, Powerlessness, Procrastination, Arrogance']
 
 }
 
@@ -80,20 +76,6 @@ if (message.substring(0, 1) == '!') {
 
     switch(cmd) {
 
-        // !ping
-
-        case 'ping':
-
-            bot.sendMessage({
-
-                to: channelID,
-
-                message: 'Pong!'
-
-            });
-
-        break;
-
         case 'draw':
 
         //currentDraw = Array('Draw: ');
@@ -123,6 +105,7 @@ if (message.substring(0, 1) == '!') {
         break;
 
         case 'invertedOdds':
+
         if(Number.isInteger(parseInt(args[1]))){
           var newOdds = parseInt(args[1]);
 
@@ -145,6 +128,22 @@ if (message.substring(0, 1) == '!') {
         }
 
         break;
+
+        //**case 'define':
+
+        //var card = '';
+
+        //for(let i = 0; i < args.length; i++){
+
+
+
+
+
+        //}
+
+
+
+        //break;
 
         // Just add any case commands if you want to..
 
@@ -173,6 +172,35 @@ function drawCard(){
   currentDraw = updated;
   //Remove the drawn card from the deck
   tempCards.splice(fatedNum, 1);
+
+
+}
+
+function checkCard(card){
+
+//First, clean up the input and check if the card is inverted
+var inverted = false;
+
+if(card.includes('Inverted ')){
+  inverted = true;
+  card.replace('Inverted ','');
+}
+
+card.replace('\n', '');
+
+//Then return the corresponding definition from the dictionary
+if(!inverted){
+
+  return definitions[card][0];
+
+}else{
+
+  return definitions[card][1];
+
+}
+
+
+
 
 
 }

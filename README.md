@@ -1,5 +1,6 @@
 # TarotBot
 A simple tarot reader for Discord &lt;3
+
 [WIP]
 Commands
 

@@ -15,3 +15,11 @@ Alters the chance of drawing an inverted card to the specified %, or resets it t
 <h2>!info [Card name] !!WIP!!</h2>
 
 Gives information regarding the specified card, currently case sensitive.
+
+
+<h1>TODO</h1>
+
+- Finish card info list
+- Remove case sensitivity for card info
+- Help command
+- Change command character from !
